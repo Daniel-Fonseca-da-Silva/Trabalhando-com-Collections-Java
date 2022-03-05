@@ -107,7 +107,17 @@ class ExemploList {
                 "e coloque todos os elementos da list Arraylist nessa nova lista: ");
         System.out.println("Mostre a primeira nota da nova lista sem removê-lo: ");
         System.out.println("Mostre a primeira nota da nova lista removendo-o: ");
-*/
+        */
+
+        System.out.println("Solução");
+        List<Double> notas3 = List.of(7D, 8.5D, 9.3D, 5D, 7D, 0D, 3.6D);
+
+        LinkedList<Double> notas2 = new LinkedList<>();
+        notas2.addAll(notas3);
+        System.out.println(notas2.getFirst());
+
+        System.out.println(notas2.removeFirst());
+        System.out.println(notas2);
 
     }
 }
