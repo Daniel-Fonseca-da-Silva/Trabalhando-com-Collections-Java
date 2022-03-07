@@ -9,19 +9,72 @@ Gato 2 = nome: Simba, idade: 6, cor: tigrado
 Gato 3 = nome: Jon, idade: 12, cor: amarelo
 */
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class ExemploOrdenacaoList {
     public static void main(String[] args) {
 
-//        System.out.println("--\tOrdem de Inserção\t---");
-//
-//        System.out.println("--\tOrdem aleatória\t---");
-//
-//        System.out.println("--\tOrdem Natural (Nome)\t---");
-//
+        List<Gato> gatos = new ArrayList<>(){{
+            add(new Gato("Jon", 18, "preto"));
+            add(new Gato("Simba", 6, "tigrado"));
+            add(new Gato("Jon", 12, "amarelo"));
+        }};
+
+        System.out.println("--\tOrdem de Inserção\t---");
+        System.out.println(gatos);
+
+        System.out.println("--\tOrdem aleatória\t---");
+        Collections.shuffle(gatos);
+        System.out.println(gatos);
+
+        System.out.println("--\tOrdem Natural (Nome)\t---");
+        Collections.sort(gatos);
+        System.out.println(gatos);
+
 //        System.out.println("--\tOrdem Idade\t---");
 //
 //        System.out.println("--\tOrdem cor\t---");
 //
 //        System.out.println("--\tOrdem Nome/Cor/Idade\t---");
-//    }
-//}
+    }
+}
+
+class Gato implements Comparable<Gato> {
+    private String nome;
+    private int idade;
+    private String cor;
+
+    public Gato(String nome, int idade, String cor) {
+        this.nome = nome;
+        this.idade = idade;
+        this.cor = cor;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    @Override
+    public String toString() {
+        return "Gato{" +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", cor='" + cor + '\'' +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Gato gato) {
+        return this.getNome().compareToIgnoreCase(gato.getNome());
+    }
+}
