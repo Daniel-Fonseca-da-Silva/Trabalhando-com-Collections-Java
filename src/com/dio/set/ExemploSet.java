@@ -15,41 +15,84 @@ public class ExemploSet {
         System.out.println(notas);
 */
 
-//        System.out.println("Crie um conjunto e adicione as notas: ");
+        System.out.println("Crie um conjunto e adicione as notas: ");
+
+        Set<Double> notas = new HashSet<>(Arrays.asList(7d, 8.5, 9.3, 5d, 7d, 0d, 3.6));
+        System.out.println(notas.toString());
 
 //        System.out.println("Exiba a posição da nota 5.0: ");
+//          não tem como devido não ter indexOf
 
-//        System.out.println("Adicione na lista a nota 8.0 na posição 4: ");
+        System.out.println("Adicione na lista a nota 8.0 na posição 4: ");
+//        não tem como devido não ter como buscar pela posição
 
 //        System.out.println("Substitua a nota 5.0 pela nota 6.0: ");
+//        não tem como já que não possui set
 
-//        System.out.println("Confira se a nota 5.0 está no conjunto: ");
+        System.out.println("Confira se a nota 5.0 está no conjunto: ");
+
+        System.out.println(notas.contains(5.0D));
 
 //        System.out.println("Exiba a terceira nota adicionada: ");
+//        não tem como devido ao indice
 
-//        System.out.println("Exiba a menor nota: ");
+        System.out.println("Exiba a menor nota: ");
+        System.out.println(Collections.min(notas));
 
-//        System.out.println("Exiba a maior nota: ");
+        System.out.println("Exiba a maior nota: ");
+        System.out.println(Collections.max(notas));
 
-//        System.out.println("Exiba a soma dos valores: ");
+        Iterator<Double> iterator = notas.iterator();
+        double soma = 0D;
 
-//        System.out.println("Exiba a média das notas: ");
+        while(iterator.hasNext()) {
+            Double next = iterator.next();
+            soma += next;
+        }
+        System.out.println("Exiba a soma dos valores: ");
 
-//        System.out.println("Remova a nota 0: ");
+        System.out.printf("%.2f", soma);
+
+        System.out.println("\nExiba a média das notas: ");
+
+        System.out.printf("%.2f", soma / notas.size());
+
+        System.out.println("\nRemova a nota 0: ");
+
+        notas.remove(0D);
+
+        System.out.println(notas);
 
 //        System.out.println("Remova a nota da posição 0");
+        // não tem como
 
-//        System.out.println("Remova as notas menores que 7 e exiba a lista: ");
+        System.out.println("Remova as notas menores que 7 e exiba a lista: ");
 
-//        System.out.println("Exiba todas as notas na ordem em que foram informados: ");
+        Iterator<Double> iterator1 = notas.iterator();
+        while(iterator1.hasNext()) {
+            Double next = iterator1.next();
+            if(next < 7) iterator1.remove();
+        }
+        System.out.println(notas);
 
-//        System.out.println("Exiba todas as notas na ordem crescente: ");
+        System.out.println("Exiba todas as notas na ordem em que foram informados: ");
 
-//        System.out.println("Apague todo o conjunto");
+        Set<Double> notas2 = new LinkedHashSet<>(Arrays.asList(7d, 8.5, 9.3, 5d, 7d, 0d, 3.6));
 
-//        System.out.println("Confira se o conjunto está vazio: ");
-//        System.out.println("Confira se o conjunto 2 está vazio: ");
-//        System.out.println("Confira se o conjunto 3 está vazio: ");
+        System.out.println(notas2);
+
+        System.out.println("Exiba todas as notas na ordem crescente: ");
+
+        Set<Double> notas3 = new TreeSet<>(notas2);
+        System.out.println(notas3);
+
+        System.out.println("Apague todo o conjunto");
+        notas.clear();
+        System.out.println(notas);
+
+        System.out.println("Confira se o conjunto está vazio: " + notas.isEmpty());
+        System.out.println("Confira se o conjunto 2 está vazio: " + notas2.isEmpty());
+        System.out.println("Confira se o conjunto 3 está vazio: " + notas3.isEmpty());
 
     }
 }
